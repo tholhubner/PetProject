@@ -30,4 +30,14 @@ class Pet extends Model
     {
         return $this->belongsToMany(PetType::class, 'pet_pet_type_table', 'pet_id', 'pet_type_id');
     }
+
+    /**
+     * Get all of the stays for the Pet
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function stays(): HasMany
+    {
+        return $this->hasMany(Stay::class);
+    }
 }
