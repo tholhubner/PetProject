@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pet extends Model
 {
@@ -39,5 +40,15 @@ class Pet extends Model
     public function stays(): HasMany
     {
         return $this->hasMany(Stay::class);
+    }
+
+    /**
+     * Get all of the reports for the Pet
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reports(): HasMany
+    {
+        return $this->hasMany(Report::class);
     }
 }
